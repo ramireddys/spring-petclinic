@@ -11,20 +11,30 @@ pipeline {
 	 }
      }
        
-         
-	 stage('Package') {
+         stage('Package') {
             steps { 
             sh "mvn clean package"
 
 
           }
         }
-      }
+     
+       
+        stage('copy') {
+	   steps {
+	     withAWS(region: 'us-east-1')
+	     s3Upload(bucket:'s3repoartfacts',includePathPattern:'**/target/*.jar')
+        
+	    }
 
-  
+       }
+
+     
+     
+     }
 
 
- }
+  }
 
 
 
