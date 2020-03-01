@@ -21,18 +21,15 @@ pipeline {
      
         
           stage(upload) {
-                  steps {  
-		        script  {
-
-                              withAWS(region: 'us-east-1')  } {
-
+              steps {  
+		         
+                                                               
 			      
-             s3Upload(bucket:'s3repoartfacts',includePathPattern:'**/target/*.jar')
-             
+             s3Upload(enties: [[bucket: "s3repoartfacts", sourceFile: "/var/lib/jenkins/workspace/pipeline project/target/spring-petclinic-2.2.0.BUILD-SNAPSHOT.jar", selectedRegion: "us-east-1", managedArtifacts: true, flatten: true]]  )
 	     } 
 	   } 
        
-   }
+   
 
         
 	
