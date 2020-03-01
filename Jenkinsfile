@@ -20,14 +20,14 @@ pipeline {
         }
      
         
-      /**    stage(upload) {
-           *   steps {  
+       stage(upload) {
+         steps {  
 		         
                                                                
 			      
-        *     s3Upload(enties: [[bucket: "s3repoartfacts", sourceFile: "/var/lib/jenkins/workspace/pipeline project/target/spring-petclinic-2.2.0.BUILD-SNAPSHOT.jar", selectedRegion: "us-east-1", managedArtifacts: true, flatten: true]]  )
-	*     } 
-	*/   } 
+             s3Upload(enties: [[bucket: "s3repoartfacts", sourceFile: "/var/lib/jenkins/workspace/pipeline project/target/spring-petclinic-2.2.0.BUILD-SNAPSHOT.jar", selectedRegion: "us-east-1", managedArtifacts: true, flatten: true]]  )
+	    } 
+	   } 
        
    
 
